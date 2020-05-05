@@ -14,8 +14,6 @@ public class Main {
         me.firstName = "Marcin";
         me.lastName = "Rosicki";
         me.pet = lion;
-        me.car = smallCar;
-
 
         lion.feed();
         me.pet.feed();
