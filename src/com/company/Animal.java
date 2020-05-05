@@ -36,4 +36,9 @@ public class Animal {
             System.out.println("Udany spacer: " + weight);
         }
     }
+
+    @Override
+    public String toString() {
+        return "Animal{" + "name='" + name + '\'' + ", species='" + species + '\'' + ", weight=" + weight + '}';
+    }
 }

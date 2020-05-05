@@ -1,5 +1,7 @@
 package com.company;
 
+import devices.Car;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -27,6 +29,13 @@ public class Main {
 
         lion.takeForAWalk();
         me.pet.takeForAWalk();
+
+        Car mediumCar = new Car("Ford", "Focus");
+
+        System.out.println(smallCar.equals(mediumCar));
+
+        System.out.println(lion);
+        System.out.println(smallCar);
 
 
     }
