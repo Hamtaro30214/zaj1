@@ -21,7 +21,10 @@ public class Main {
         me.pet = lion;
 
         me.getSalary();
-        me.setCar(smallCar);
+        me.buyCar(smallCar);
+
+        //me.getCar();
+
         me.setSalary(3000.0);
         me.getSalary();
 
@@ -44,7 +47,65 @@ public class Main {
         me.phone = samsung;
         System.out.println(samsung);
         me.phone.turnOn();
+        System.out.println();
+
+        Human carSeller = new Human();
+        carSeller.firstName = "Waldemar";
+        carSeller.lastName = "Padalski";
+        carSeller.cash = 2100.0;
+        Car carForSell = new Car("Opel", "Vectra", 2006);
+        carSeller.setCar(carForSell);
+        //carSeller.getCar();
+
+        System.out.println();
+        Human petSeller = new Human();
+        petSeller.firstName = "Waldemar";
+        petSeller.lastName = "Padalski";
+        petSeller.cash = 300.0;
+        petSeller.pet = new Animal("Dog");
+        petSeller.pet.name = "Azor";
+
+        Human petBuyer = new Human();
+        petBuyer.firstName = "Adam";
+        petBuyer.lastName = "Kowalski";
+        petBuyer.cash = 2000.0;
+
+        try {
+            petSeller.pet.sell(petSeller, petBuyer, 1500.0);
+        } catch (Exception a) {
+            System.out.println(a.getMessage());
+        }
+
+        System.out.println("Pieniądze sprzedającego: " + petSeller.cash);
+        System.out.println("Pieniądze kupującego: " + petBuyer.cash);
+
+
+        Human phoneSeller = new Human();
+        phoneSeller.firstName = "Adrian";
+        phoneSeller.cash = 360.0;
+        phoneSeller.phone = new Phone("Samsung", "Galaxy", 2010);
+
+        Human phoneBuyer = new Human();
+        phoneBuyer.firstName = "Andrzej";
+        phoneBuyer.cash = 600.0;
+        try {
+            phoneSeller.phone.sell(phoneSeller, phoneBuyer, 520.0);
+        } catch (Exception b) {
+            System.out.println(b.getMessage());
+        }
+
+        Human carBuyer = new Human();
+        carBuyer.firstName = "Adam";
+        carBuyer.lastName = "Kowalski";
+        carBuyer.cash = 5000.0;
+
+        try {
+            carSeller.getCar().sell(carSeller, carBuyer, 2500.0);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
 
     }
 }
+
 

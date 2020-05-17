@@ -7,13 +7,18 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class Human {
+public class Human extends Animal {
     String firstName;
     String lastName;
-    Phone phone;
+    public Phone phone;
     Animal pet;
     private Car car;
     private Double salary = 2000.0;
+    public Double cash = 0.0;
+
+    public Human() {
+        super("homo sapiens");
+    }
 
     public Double getSalary() {
         DateFormat dateFormat = new SimpleDateFormat("yyyy/mm/dd");
@@ -36,10 +41,14 @@ public class Human {
     }
 
     public Car getCar() {
-        return this.car;
+        return car;
     }
 
-    public boolean setCar(Car car) {
+    public void setCar(Car car) {
+        this.car = car;
+    }
+
+    public boolean buyCar(Car car) {
         if (this.salary > car.getPrice()) {
             System.out.println("Kupiono autko.");
             return true;
@@ -51,6 +60,12 @@ public class Human {
             return false;
         }
     }
+
+    @Override
+    public void sell(Human seller, Human buyer, Double price) {
+        System.out.println("Błąd");
+    }
 }
+
 
 

@@ -2,7 +2,7 @@ package com.company;
 
 import java.io.File;
 
-public class Animal {
+public class Animal implements Sellable {
     final String species;
     String name;
     File pic;
@@ -10,7 +10,7 @@ public class Animal {
 
     public Animal(String species) {
         this.species = species;
-        if (species eq "Dod"){
+        if (species == "Dod") {
             weight = 10.0;
         } else if (species == "Lion") {
             weight = 190.0;
@@ -41,6 +41,26 @@ public class Animal {
     public String toString() {
         return "Animal{" + "name='" + name + '\'' + ", species='" + species + '\'' + ", weight=" + weight + '}';
     }
+
+    @Override
+    public void sell(Human seller, Human buyer, Double price) throws Exception {
+        if (this instanceof Human) {
+            throw new Exception("Zakaz handlu ludźmi.");
+        } else {
+            if (buyer.cash < price) {
+                throw new Exception("Brak wystarczających środków na kupno zwierzaka.");
+            }
+            if (seller.pet != this) {
+                throw new Exception("Sprzedawca nie posida zwierzaka.");
+            }
+            buyer.cash -= price;
+            seller.cash += price;
+            buyer.pet = this;
+            seller.pet = null;
+            System.out.println(buyer.firstName + " kupił od " + seller.firstName + " " + buyer.pet);
+        }
+    }
 }
+
 
 
