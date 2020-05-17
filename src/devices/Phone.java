@@ -1,12 +1,16 @@
 package devices;
 
-public class Phone {
-    String producer;
-    String model;
-    Double screenSize;
+public class Phone extends Device {
+    public Double screenSize;
+
+    public Phone(String producer, String model, Integer yearOfProduction) {
+        super(producer, model, yearOfProduction);
+    }
 
     @Override
-    public String toString() {
-        return "Phone{" + "producer='" + producer + '\'' + ", model='" + model + '\'' + ", screenSize=" + screenSize + '}';
+    public void turnOn() {
+        System.out.println("Telefon wlaczony");
     }
 }
+
+

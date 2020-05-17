@@ -10,7 +10,7 @@ public class Animal {
 
     public Animal(String species) {
         this.species = species;
-        if (species == "Dod") {
+        if (species eq "Dod"){
             weight = 10.0;
         } else if (species == "Lion") {
             weight = 190.0;
@@ -42,3 +42,5 @@ public class Animal {
         return "Animal{" + "name='" + name + '\'' + ", species='" + species + '\'' + ", weight=" + weight + '}';
     }
 }
+
+

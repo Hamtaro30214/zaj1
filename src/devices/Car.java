@@ -1,16 +1,15 @@
 package devices;
 
-public class Car {
-    final String producer;
-    final String model;
+public class Car extends Device {
+
     public int numberOfDoors;
     public Double combustion;
     private Double price;
 
-    public Car(String producer, String model) {
-        this.producer = producer;
-        this.model = model;
+    public Car(String producer, String model, Integer yearOfProduction) {
+        super(producer, model, yearOfProduction);
     }
+
 
     public Double getPrice() {
         return this.price;
@@ -30,8 +29,9 @@ public class Car {
     }
 
     @Override
-    public String toString() {
-        return "Car{" + "model='" + model + '\'' + ", producer='" + producer + '\'' + '}';
+    public void turnOn() {
+        System.out.println("Auto właczone");
     }
-
 }
+
+
