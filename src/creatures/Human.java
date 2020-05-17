@@ -1,4 +1,4 @@
-package com.company;
+package creatures;
 
 import devices.Car;
 import devices.Phone;
@@ -8,10 +8,10 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Human extends Animal {
-    String firstName;
-    String lastName;
+    public String firstName;
+    public String lastName;
     public Phone phone;
-    Animal pet;
+    public Animal pet;
     private Car car;
     private Double salary = 2000.0;
     public Double cash = 0.0;
@@ -65,6 +65,13 @@ public class Human extends Animal {
     public void sell(Human seller, Human buyer, Double price) {
         System.out.println("Błąd");
     }
+
+
+    @Override
+    public void feed(Double foodWeight) {
+
+    }
+
 }
 
 

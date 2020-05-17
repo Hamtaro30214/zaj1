@@ -1,13 +1,20 @@
 package com.company;
 
+import creatures.Animal;
+import creatures.Human;
 import devices.Car;
 import devices.Phone;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 
-        Animal lion = new Animal("Lion");
+        Animal lion = new Animal("Lion") {
+            @Override
+            public void feed(Double foodWeight) {
+
+            }
+        };
         lion.name = "Brutus";
 
         Car smallCar = new Car("Ford", "Focus", 2004);
@@ -62,7 +69,12 @@ public class Main {
         petSeller.firstName = "Waldemar";
         petSeller.lastName = "Padalski";
         petSeller.cash = 300.0;
-        petSeller.pet = new Animal("Dog");
+        petSeller.pet = new Animal("Dog") {
+            @Override
+            public void feed(Double foodWeight) {
+
+            }
+        };
         petSeller.pet.name = "Azor";
 
         Human petBuyer = new Human();
@@ -105,6 +117,15 @@ public class Main {
             System.out.println(e.getMessage());
         }
 
+
+        Animal swinka = new Animal("Pig") {
+            @Override
+            public void feed(Double foodWeight) {
+
+            }
+        };
+        swinka.feed(3.0);
+        swinka.beEaten();
     }
 }
 

@@ -1,10 +1,12 @@
-package com.company;
+package creatures;
+
+import com.company.Sellable;
 
 import java.io.File;
 
-public class Animal implements Sellable {
+public abstract class Animal implements Sellable, Edible, Feedable {
     final String species;
-    String name;
+    public String name;
     File pic;
     private Double weight;
 
@@ -14,12 +16,14 @@ public class Animal implements Sellable {
             weight = 10.0;
         } else if (species == "Lion") {
             weight = 190.0;
+        } else if (species == "Pig") {
+            weight = 15.0;
         } else {
             weight = 1.0;
         }
     }
 
-    void feed() {
+    public void feed() {
         if (weight <= 0.0) {
             System.out.println("Nie można nakarmić martwego zwierzaka.");
         } else {
@@ -28,7 +32,7 @@ public class Animal implements Sellable {
         }
     }
 
-    void takeForAWalk() {
+    public void takeForAWalk() {
         if (weight <= 0.0) {
             System.out.println("Nie można iść na spacer z martwym zwierzakiem.");
         } else {
@@ -59,6 +63,11 @@ public class Animal implements Sellable {
             seller.pet = null;
             System.out.println(buyer.firstName + " kupił od " + seller.firstName + " " + buyer.pet);
         }
+    }
+
+    @Override
+    public void beEaten() {
+
     }
 }
 
